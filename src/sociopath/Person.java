@@ -48,8 +48,8 @@ public class Person {
         this.dive = dive;
     }
     
-    public void addFriends(Person p,int num){
-        Friends f=new Friends(p,num);
+    public void addFriends(Person p){
+        Friends f=new Friends(p);
         friends.add(f);
     }
     
