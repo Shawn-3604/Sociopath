@@ -62,12 +62,25 @@ public class Person {
         return friends.contains(p);
     }
 
-    public ArrayList<Reputation> getRep() {
-        return rep;
+    public int getRep(Person p) {
+        if(contain(p)){
+            for(int i=0;i<rep.size();i++){
+                if(p.equals(rep.get(i).getP())){
+                    return rep.get(i).getRep();
+                }
+            }
+        }
+        return 0;
     }
 
     public void setRep(Person p,int r) {
-        rep.add(new Reputation(p,r));
+        if(contain(p)){
+            for(int i=0;i<rep.size();i++){
+                if(p.equals(rep.get(i).getP())){
+                    rep.get(i).setRep(r);
+                }
+            }
+        }
     }
     
     public int aveLunchHour(){
