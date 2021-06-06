@@ -5,7 +5,7 @@
  */
 package sociopath;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 /**
  *
@@ -18,8 +18,8 @@ public class Person {
     private double dive;
     private int[] lunchStart;
     private int[] lunchPeriod;
-    ArrayList<Friends> friends=new ArrayList<>();
-    ArrayList<Reputation> rep=new ArrayList<>();
+    LinkedList<Friends> friends=new LinkedList<>();
+    LinkedList<Reputation> rep=new LinkedList<>();
 
     public Person(String name) {
         this.name = name;
