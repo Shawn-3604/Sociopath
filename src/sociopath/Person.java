@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Random;
 /**
  *
- * @author User
+ * @Aizat User
  */
 public class Person {
     Random r=new Random();
