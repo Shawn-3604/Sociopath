@@ -7,7 +7,7 @@ package sociopath;
 
 /**
  *
- * @author User
+ * @Aizat User
  */
 public class Friends {
     private Person p;
