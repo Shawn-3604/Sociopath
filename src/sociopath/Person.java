@@ -53,13 +53,13 @@ public class Person {
         friends.add(f);
     }
     
-    public void addRep(Person p,int r){
+    public void addRep(Person p,double r){
         Reputation newr=new Reputation(p,r);
         rep.add(newr);
     }
     
     public boolean contain(Person p){
-        if(friends.isEmpty()){
+        if(!friends.isEmpty()){
             for(int i=0;i<friends.size();i++){
                 if(friends.get(i).getP().equals(p))
                     return true;
@@ -68,7 +68,7 @@ public class Person {
         return false;
     }
 
-    public int getRep(Person p) {
+    public double getRep(Person p) {
         for(int i=0;i<rep.size();i++){
             if(rep.get(i).getP().equals(p)){
                 return rep.get(i).getRep();
@@ -77,7 +77,7 @@ public class Person {
         return 0;
     }
 
-    public void setRep(Person p,int r) {
+    public void setRep(Person p,double r) {
         for(int i=0;i<rep.size();i++){
             if(rep.get(i).getP().equals(p)){
                 rep.get(i).setRep(r);
