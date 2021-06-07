@@ -59,13 +59,19 @@ public class Person {
     }
     
     public boolean contain(Person p){
-        return friends.contains(p);
+        if(friends.isEmpty()){
+            for(int i=0;i<friends.size();i++){
+                if(friends.get(i).getP().equals(p))
+                    return true;
+            }
+        }
+        return false;
     }
 
     public int getRep(Person p) {
         if(contain(p)){
             for(int i=0;i<rep.size();i++){
-                if(p.equals(rep.get(i).getP())){
+                if(rep.get(i).getP().equals(p)){
                     return rep.get(i).getRep();
                 }
             }
@@ -76,7 +82,7 @@ public class Person {
     public void setRep(Person p,int r) {
         if(contain(p)){
             for(int i=0;i<rep.size();i++){
-                if(p.equals(rep.get(i).getP())){
+                if(rep.get(i).getP().equals(p)){
                     rep.get(i).setRep(r);
                 }
             }
@@ -88,7 +94,8 @@ public class Person {
         for(int i=0;i<lunchStart.length;i++){
             sum+=lunchStart[i];
         }
-        return average=sum/lunchStart.length;
+        average=sum/lunchStart.length;
+        return average;
     }
     
     public int aveLunchTime(){
@@ -96,6 +103,7 @@ public class Person {
         for(int i=0;i<lunchPeriod.length;i++){
             sum+=lunchPeriod[i];
         }
-        return average=sum/lunchPeriod.length;
+        average=sum/lunchPeriod.length;
+        return average;
     }
 }
