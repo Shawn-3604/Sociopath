@@ -17,12 +17,7 @@ package sociopath;
  * answer: to decide whether to help or not
  */
 public class Events {
-    /**
-    * A:the person that seeking for help
-    * B:the person that helping
-    * Grade: to show whether P_2 can teach or not
-    * answer: to decide whether to help or not
-    */
+    
     public static void Events1(Person A,Person B,boolean Grade,boolean answer){
         System.out.println("Event 1: ");
         if(A.contain(B)||B.contain(A)){
