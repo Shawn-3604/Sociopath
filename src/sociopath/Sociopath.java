@@ -13,6 +13,8 @@ public class Sociopath {
     public static void main(String[] args) {
         Graph g=new Graph();
         initialize(g);
+        
+        System.out.println(g.getPerson("P7").getRep(g.getPerson("P1")));
     }
     
     public static void initialize(Graph g){

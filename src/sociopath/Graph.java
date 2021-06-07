@@ -15,7 +15,6 @@ public class Graph {
     LinkedList<Person> person=new LinkedList<>();
     
     public Graph(){
-        person=null;
     }
     
     public int getsize(){
@@ -24,14 +23,12 @@ public class Graph {
     
     public void addPerson(String name){
         Person p=new Person(name);
-        p.addRep(p, 0);
-        person.add(p);
+        person.addFirst(p);
     }
     
     public void addPerson(String name,double dive, int[] lunchStart, int[] lunchPeriod){
         Person p=new Person(name,dive,lunchStart,lunchPeriod);
-        p.addRep(p, 0);
-        person.add(p);
+        person.addFirst(p);
     }
     
     public void addFriends(Person p1,Person p2){

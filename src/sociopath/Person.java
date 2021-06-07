@@ -69,24 +69,17 @@ public class Person {
     }
 
     public int getRep(Person p) {
-        if(contain(p)){
-            for(int i=0;i<rep.size();i++){
-                if(rep.get(i).getP().equals(p)){
-                    return rep.get(i).getRep();
-                }
+        for(int i=0;i<rep.size();i++){
+            if(rep.get(i).getP().equals(p)){
+                return rep.get(i).getRep();
             }
         }
         return 0;
     }
 
     public void setRep(Person p,int r) {
-        if(contain(p)){
-            for(int i=0;i<rep.size();i++){
-                if(rep.get(i).getP().equals(p)){
-                    rep.get(i).setRep(r);
-                }
-            }
-        }
+        Reputation reputation=new Reputation(p,r);
+        rep.add(reputation);
     }
     
     public int aveLunchHour(){

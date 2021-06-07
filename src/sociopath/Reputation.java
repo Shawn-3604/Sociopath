@@ -20,7 +20,7 @@ public class Reputation {
 
     @Override
     public String toString() {
-        return p.getName() + "rep= " + rep ;
+        return p.getName() + ",rep: " + rep ;
     }
 
     public Person getP() {
