@@ -11,9 +11,9 @@ package sociopath;
  */
 public class Reputation {
     private Person p;
-    private int rep;
+    private double rep;
 
-    public Reputation(Person p, int rep) {
+    public Reputation(Person p, double rep) {
         this.p = p;
         this.rep = rep;
     }
@@ -27,11 +27,11 @@ public class Reputation {
         return p;
     }
 
-    public int getRep() {
+    public double getRep() {
         return rep;
     }
 
-    public void setRep(int rep) {
+    public void setRep(double rep) {
         this.rep = rep;
     }
 }
