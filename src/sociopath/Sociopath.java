@@ -14,7 +14,8 @@ public class Sociopath {
         Graph g=new Graph();
         initialize(g);
         
-        System.out.println(g.toGraph());
+        //System.out.println(g.toGraph());
+        Events.Events1(g.getPerson("P1"),g.getPerson("P2"),true,true);
     }
     
     public static void initialize(Graph g){
