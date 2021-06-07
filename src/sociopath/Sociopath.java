@@ -14,7 +14,7 @@ public class Sociopath {
         Graph g=new Graph();
         initialize(g);
         
-        System.out.println(g.getPerson("P7").getRep(g.getPerson("P1")));
+        System.out.println(g.toGraph());
     }
     
     public static void initialize(Graph g){
@@ -29,22 +29,22 @@ public class Sociopath {
         g.addPerson("P9", 0.5, new int[] {1300,1100,1300,1130,1200,1200,1230}, new int[] {45,45,30,30,15,30,15});
         g.addPerson("P10", 0.35, new int[] {1230,1230,1130,1200,1200,1300,1300}, new int[] {30,30,30,15,15,45,45});
         
-        g.getPerson("P1").setRep(g.getPerson("P2"), 5);
-        g.getPerson("P1").setRep(g.getPerson("P7"), 4);
-        g.getPerson("P2").setRep(g.getPerson("P1"), 8);
-        g.getPerson("P2").setRep(g.getPerson("P3"), 5);
-        g.getPerson("P2").setRep(g.getPerson("P5"), 6);
-        g.getPerson("P2").setRep(g.getPerson("P6"), 9);
-        g.getPerson("P3").setRep(g.getPerson("P2"), 4);
-        g.getPerson("P4").setRep(g.getPerson("P8"), 7);
-        g.getPerson("P4").setRep(g.getPerson("P10"), 7);
-        g.getPerson("P5").setRep(g.getPerson("P2"), 2);
-        g.getPerson("P6").setRep(g.getPerson("P2"), 7);
-        g.getPerson("P7").setRep(g.getPerson("P1"), 3);
-        g.getPerson("P8").setRep(g.getPerson("P4"), 10);
-        g.getPerson("P9").setRep(g.getPerson("P10"), 5);
-        g.getPerson("P10").setRep(g.getPerson("P4"), 7);
-        g.getPerson("P10").setRep(g.getPerson("P9"), 6);
+        g.getPerson("P1").addRep(g.getPerson("P2"), 5);
+        g.getPerson("P1").addRep(g.getPerson("P7"), 4);
+        g.getPerson("P2").addRep(g.getPerson("P1"), 8);
+        g.getPerson("P2").addRep(g.getPerson("P3"), 5);
+        g.getPerson("P2").addRep(g.getPerson("P5"), 6);
+        g.getPerson("P2").addRep(g.getPerson("P6"), 9);
+        g.getPerson("P3").addRep(g.getPerson("P2"), 4);
+        g.getPerson("P4").addRep(g.getPerson("P8"), 7);
+        g.getPerson("P4").addRep(g.getPerson("P10"), 7);
+        g.getPerson("P5").addRep(g.getPerson("P2"), 2);
+        g.getPerson("P6").addRep(g.getPerson("P2"), 7);
+        g.getPerson("P7").addRep(g.getPerson("P1"), 3);
+        g.getPerson("P8").addRep(g.getPerson("P4"), 10);
+        g.getPerson("P9").addRep(g.getPerson("P10"), 5);
+        g.getPerson("P10").addRep(g.getPerson("P4"), 7);
+        g.getPerson("P10").addRep(g.getPerson("P9"), 6);
         
         g.addFriends(g.getPerson("P1"),g.getPerson("P2"));
         g.addFriends(g.getPerson("P1"),g.getPerson("P7"));

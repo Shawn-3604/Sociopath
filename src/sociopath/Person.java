@@ -78,8 +78,11 @@ public class Person {
     }
 
     public void setRep(Person p,int r) {
-        Reputation reputation=new Reputation(p,r);
-        rep.add(reputation);
+        for(int i=0;i<rep.size();i++){
+            if(rep.get(i).getP().equals(p)){
+                rep.get(i).setRep(r);
+            }
+        }
     }
     
     public int aveLunchHour(){
