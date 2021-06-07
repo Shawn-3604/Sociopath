@@ -39,6 +39,15 @@ public class Graph {
         p2.addFriends(p1);
     }
     
+    public Person getPerson(String name){
+        for(int i=0;i<person.size();i++){
+            if(person.get(i).getName().equals(name)){
+                return person.get(i);
+            }
+        }
+        return null;
+    }
+    
     public boolean contain(String name){
         Person p=new Person(name);
         for(int i=0;i<person.size();i++){
