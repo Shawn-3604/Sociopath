@@ -7,7 +7,7 @@ package sociopath;
 
 /**
  *
- * @author User
+ * @Aizat User
  */
 public class Sociopath {
     public static void main(String[] args) {
