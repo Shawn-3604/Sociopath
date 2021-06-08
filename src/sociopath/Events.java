@@ -20,16 +20,16 @@ public class Events {
      */
     public static void Events1(Person A,Person B,boolean Grade,boolean answer){
         System.out.println("Event 1: ");
-        //to check whether A and B stranger or not
+        //To check whether A and B stranger or not
         if(A.contain(B)||B.contain(A)){
             System.out.println(A.getName()+" and "+B.getName()
                     +" are not strangers");
         }else{
             System.out.println(A.getName()+" asks "+B.getName()
                     +" to help to teach how to solve the Data Structure course's lab question");
-            //to check whether B want to teach or not
+            //To check whether B want to teach or not
             if(answer){
-                //to check whether B good or not at programming
+                //To check whether B good or not at programming
                 if(Grade){
                     B.setRep(A, 10);
                     System.out.println(A.getName()+" said that the learning experience with "
@@ -59,9 +59,9 @@ public class Events {
     public static void Events2(Person A,Person B,Person C,boolean side){
         System.out.println("Event 2: ");
         double rep;
-        //to check whether A and B friends or not
+        //To check whether A and B friends or not
         if(A.contain(B)||B.contain(A)){
-            //to check whether B tell about good or bad side of A
+            //To check whether B tell about good or bad side of A
             if(side){
                 rep=A.getRep(B)*0.5;
                 C.addRep(A,rep);
@@ -83,34 +83,45 @@ public class Events {
         }
     }
     
-    
+    /**
+     * Your road to glory
+     * @param A:The person that want others
+     * @param D:The graph that had been initialize
+     */
     public static void Events3(Person A,Data D){
         System.out.println("Event 3: ");
-        System.out.println(A.getName()+" want to eat lunch with friends to increase reputation");
+        System.out.println(A.getName()+" want to eat lunch with others to increase reputation");
         int startLunch=A.aveLunchHour();
         int lunchTime=A.aveLunchTime();
         int endLunch=startLunch+lunchTime;
         int totalrep=0;
+        //To ensure time is in correct form
         if(endLunch%100>=60){
             endLunch=(endLunch-(endLunch%100))+(100+((endLunch%100)-60));
         }
         int otherStartLunch,otherLunchTime,otherEndLunch;
         for(int i=0;i<D.person.size();i++){
+            //To check for the same person
             if(A.equals(D.person.get(i))){
                 continue;
             }
             otherStartLunch=D.person.get(i).aveLunchHour();
             otherLunchTime=D.person.get(i).aveLunchTime();
             otherEndLunch=otherStartLunch+otherLunchTime;
+            //To ensure time is in correct form
             if(otherEndLunch%100>=60){
                 otherEndLunch=(otherEndLunch-(otherEndLunch%100))+(100+((otherEndLunch%100)-60));
             }
+            //To check whether still have time to lunch with others
             if(lunchTime>0){
+                //To check whether other person is available during the time
                 if(startLunch>=otherStartLunch&&endLunch>otherEndLunch){
                     lunchTime=lunchTime-(otherEndLunch-startLunch);
+                    //To ensure time is in correct form
                     if(endLunch%100>=60){
                         endLunch=(endLunch-(endLunch%100))+(100+((endLunch%100)-60));
                     }
+                    //To check whether A is friends with that person or not
                     if(A.contain(D.person.get(i))){
                         A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);
                         totalrep+=1;
