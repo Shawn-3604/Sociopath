@@ -11,15 +11,25 @@ package sociopath;
  */
 public class Events {
     
+    /**
+     * Teaching a stranger to solve lab question
+     * @param A: the stranger
+     * @param B: the teacher
+     * @param Grade: whether the teacher is good or not at programming
+     * @param answer: whether the teacher want to teach or not
+     */
     public static void Events1(Person A,Person B,boolean Grade,boolean answer){
         System.out.println("Event 1: ");
+        //to check whether A and B stranger or not
         if(A.contain(B)||B.contain(A)){
             System.out.println(A.getName()+" and "+B.getName()
                     +" are not strangers");
         }else{
             System.out.println(A.getName()+" asks "+B.getName()
                     +" to help to teach how to solve the Data Structure course's lab question");
+            //to check whether B want to teach or not
             if(answer){
+                //to check whether B good or not at programming
                 if(Grade){
                     B.setRep(A, 10);
                     System.out.println(A.getName()+" said that the learning experience with "
@@ -39,11 +49,19 @@ public class Events {
         }
     }
     
-    
+    /**
+     * Chit-chat
+     * @param A: the person that been talked about
+     * @param B: the person that tell C about A
+     * @param C: the listener
+     * @param side: whether B talked good or bad about A
+     */
     public static void Events2(Person A,Person B,Person C,boolean side){
         System.out.println("Event 2: ");
         double rep;
+        //to check whether A and B friends or not
         if(A.contain(B)||B.contain(A)){
+            //to check whether B tell about good or bad side of A
             if(side){
                 rep=A.getRep(B)*0.5;
                 C.addRep(A,rep);
@@ -63,5 +81,10 @@ public class Events {
             System.out.println(A.getName()+" and "+B.getName()
                     +" are strangers");
         }
+    }
+    
+    
+    public static void Events3(){
+        
     }
 }
