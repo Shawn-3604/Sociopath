@@ -84,7 +84,52 @@ public class Events {
     }
     
     
-    public static void Events3(){
-        
+    public static void Events3(Person A,Data D){
+        System.out.println("Event 3: ");
+        System.out.println(A.getName()+" want to eat lunch with friends to increase reputation");
+        int startLunch=A.aveLunchHour();
+        int lunchTime=A.aveLunchTime();
+        int endLunch=startLunch+lunchTime;
+        int totalrep=0;
+        if(endLunch%100>=60){
+            endLunch+=(100+((endLunch%100)-60));
+        }
+        for(int i=0;i<D.getsize();i++){
+            if(startLunch>=D.person.get(i).aveLunchHour()){
+                endLunch=endLunch-((D.person.get(i).aveLunchHour())-startLunch);
+                if(endLunch%100>=60){
+                    endLunch+=(100+((endLunch%100)-60));
+                }
+                if(A.contain(D.person.get(i))){
+                    A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);
+                    totalrep+=1;
+                }else{
+                    A.addRep(D.person.get(i), 1);
+                    totalrep+=1;
+                }
+                System.out.println(A.getName()+" eats lunch with "+D.person.get(i).getName());
+                continue;
+            }
+            if(endLunch>startLunch){
+                while(endLunch>startLunch){
+                    if(startLunch>=D.person.get(i).aveLunchHour()){
+                        endLunch=endLunch-((D.person.get(i).aveLunchHour())-startLunch);
+                        if(endLunch%100>=60){
+                            endLunch+=(100+((endLunch%100)-60));
+                        }
+                        if(A.contain(D.person.get(i))){
+                            A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);
+                            totalrep+=1;
+                        }else{
+                            A.addRep(D.person.get(i), 1);
+                            totalrep+=1;
+                    }
+                    System.out.println(A.getName()+" eats lunch with "+D.person.get(i).getName());
+                    }
+                }
+            }else{
+                break;
+            }
+        }
     }
 }
