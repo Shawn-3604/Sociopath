@@ -89,8 +89,14 @@ public class Person {
         int average,sum=0;
         for(int i=0;i<lunchStart.length;i++){
             sum+=lunchStart[i];
+            if(sum%100>=60){
+                sum=(sum-(sum%100))+(100+((sum%100)-60));
+            }
         }
         average=sum/lunchStart.length;
+        if(average%100>=60){
+            average=(average-(average%100))+(100+((average%100)-60));
+        }
         return average;
     }
     
@@ -100,6 +106,9 @@ public class Person {
             sum+=lunchPeriod[i];
         }
         average=sum/lunchPeriod.length;
+        if(average%100>=60){
+            average+=(100+((average%100)-60));
+        }
         return average;
     }
 }

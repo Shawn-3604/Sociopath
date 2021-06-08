@@ -66,7 +66,7 @@ public class Data {
         return person;
     }
     
-    public String toGraph(){
+    public String toData(){
         String f="Friendship: ";
         for(int i=0;i<person.size();i++){
             for(int j=0;j<person.get(i).friends.size();j++){

@@ -92,44 +92,38 @@ public class Events {
         int endLunch=startLunch+lunchTime;
         int totalrep=0;
         if(endLunch%100>=60){
-            endLunch+=(100+((endLunch%100)-60));
+            endLunch=(endLunch-(endLunch%100))+(100+((endLunch%100)-60));
         }
-        for(int i=0;i<D.getsize();i++){
-            if(startLunch>=D.person.get(i).aveLunchHour()){
-                endLunch=endLunch-((D.person.get(i).aveLunchHour())-startLunch);
-                if(endLunch%100>=60){
-                    endLunch+=(100+((endLunch%100)-60));
-                }
-                if(A.contain(D.person.get(i))){
-                    A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);
-                    totalrep+=1;
-                }else{
-                    A.addRep(D.person.get(i), 1);
-                    totalrep+=1;
-                }
-                System.out.println(A.getName()+" eats lunch with "+D.person.get(i).getName());
+        int otherStartLunch,otherLunchTime,otherEndLunch;
+        for(int i=0;i<D.person.size();i++){
+            if(A.equals(D.person.get(i))){
                 continue;
             }
-            if(endLunch>startLunch){
-                while(endLunch>startLunch){
-                    if(startLunch>=D.person.get(i).aveLunchHour()){
-                        endLunch=endLunch-((D.person.get(i).aveLunchHour())-startLunch);
-                        if(endLunch%100>=60){
-                            endLunch+=(100+((endLunch%100)-60));
-                        }
-                        if(A.contain(D.person.get(i))){
-                            A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);
-                            totalrep+=1;
-                        }else{
-                            A.addRep(D.person.get(i), 1);
-                            totalrep+=1;
+            otherStartLunch=D.person.get(i).aveLunchHour();
+            otherLunchTime=D.person.get(i).aveLunchTime();
+            otherEndLunch=otherStartLunch+otherLunchTime;
+            if(otherEndLunch%100>=60){
+                otherEndLunch=(otherEndLunch-(otherEndLunch%100))+(100+((otherEndLunch%100)-60));
+            }
+            if(lunchTime>0){
+                if(startLunch>=otherStartLunch&&endLunch>otherEndLunch){
+                    lunchTime=lunchTime-(otherEndLunch-startLunch);
+                    if(endLunch%100>=60){
+                        endLunch=(endLunch-(endLunch%100))+(100+((endLunch%100)-60));
                     }
-                    System.out.println(A.getName()+" eats lunch with "+D.person.get(i).getName());
+                    if(A.contain(D.person.get(i))){
+                        A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);
+                        totalrep+=1;
+                    }else{
+                        A.addRep(D.person.get(i), 1);
+                        totalrep+=1;
                     }
+                System.out.println(A.getName()+" eats lunch with "+D.person.get(i).getName());
                 }
             }else{
                 break;
             }
         }
+        System.out.println(A.getName()+" max reputation obtain is "+totalrep);
     }
 }
