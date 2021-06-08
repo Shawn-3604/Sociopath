@@ -17,7 +17,8 @@ public class Sociopath {
         
         //System.out.println(g.toGraph());
         //Events.Events1(g.getPerson("P1"),g.getPerson("P2"),true,true);
-        Events.Events2(g.getPerson("P1"), g.getPerson("P2"), g.getPerson("P3"), false);
+        //Events.Events2(g.getPerson("P1"), g.getPerson("P2"), g.getPerson("P3"), false);
+        Events.Events3(g.getPerson("P2"), g);
     }
     
     
