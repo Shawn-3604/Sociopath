@@ -11,10 +11,10 @@ import java.util.LinkedList;
  *
  * @author User
  */
-public class Graph {
+public class Data {
     LinkedList<Person> person=new LinkedList<>();
     
-    public Graph(){
+    public Data(){
     }
     
     public int getsize(){

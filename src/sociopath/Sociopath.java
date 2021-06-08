@@ -11,7 +11,7 @@ package sociopath;
  */
 public class Sociopath {
     public static void main(String[] args) {
-        Graph g=new Graph();
+        Data g=new Data();
         initialize(g);
         
         //System.out.println(g.toGraph());
@@ -19,7 +19,7 @@ public class Sociopath {
         Events.Events2(g.getPerson("P1"), g.getPerson("P2"), g.getPerson("P3"), false);
     }
     
-    public static void initialize(Graph g){
+    public static void initialize(Data g){
         g.addPerson("P1", 0.3, new int[] {1130,1145,1130,1200,1230,1130,1130}, new int[] {15,30,15,45,30,45,45});
         g.addPerson("P2", 0.4, new int[] {1130,1130,1200,1200,1130,1300,1300}, new int[] {30,30,30,45,45,15,15});
         g.addPerson("P3", 0.4, new int[] {1300,1300,1230,1300,1130,1200,1200}, new int[] {45,45,30,15,15,30,45});
