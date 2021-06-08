@@ -12,6 +12,7 @@ package sociopath;
 public class Sociopath {
     public static void main(String[] args) {
         Data g=new Data();
+        //Initialization of the variable
         initialize(g);
         
         //System.out.println(g.toGraph());
@@ -19,7 +20,9 @@ public class Sociopath {
         Events.Events2(g.getPerson("P1"), g.getPerson("P2"), g.getPerson("P3"), false);
     }
     
+    
     public static void initialize(Data g){
+        //Initialization of a person
         g.addPerson("P1", 0.3, new int[] {1130,1145,1130,1200,1230,1130,1130}, new int[] {15,30,15,45,30,45,45});
         g.addPerson("P2", 0.4, new int[] {1130,1130,1200,1200,1130,1300,1300}, new int[] {30,30,30,45,45,15,15});
         g.addPerson("P3", 0.4, new int[] {1300,1300,1230,1300,1130,1200,1200}, new int[] {45,45,30,15,15,30,45});
@@ -31,6 +34,7 @@ public class Sociopath {
         g.addPerson("P9", 0.5, new int[] {1300,1100,1300,1130,1200,1200,1230}, new int[] {45,45,30,30,15,30,15});
         g.addPerson("P10", 0.35, new int[] {1230,1230,1130,1200,1200,1300,1300}, new int[] {30,30,30,15,15,45,45});
         
+        //Initialization of a person reputation towards another person
         g.getPerson("P1").addRep(g.getPerson("P2"), 5);
         g.getPerson("P1").addRep(g.getPerson("P7"), 4);
         g.getPerson("P2").addRep(g.getPerson("P1"), 8);
@@ -48,6 +52,7 @@ public class Sociopath {
         g.getPerson("P10").addRep(g.getPerson("P4"), 7);
         g.getPerson("P10").addRep(g.getPerson("P9"), 6);
         
+        //Initialization of friends between two person
         g.addFriends(g.getPerson("P1"),g.getPerson("P2"));
         g.addFriends(g.getPerson("P1"),g.getPerson("P7"));
         g.addFriends(g.getPerson("P2"),g.getPerson("P3"));
