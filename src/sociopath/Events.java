@@ -138,6 +138,9 @@ public class Events {
         System.out.println(A.getName()+" max reputation obtain is "+totalrep);
     }
     
+    /**
+     * Arranging books
+     */
     public static void Events4(){
         int round=0;
         LinkedList<Integer> bookList=new LinkedList<>();
@@ -148,10 +151,11 @@ public class Events {
         System.out.println("Enter all the books height: ");
         String list=s.nextLine();
         String[] bookHeights=list.split(" ");
+        //To move the data from bookHeights to bookList
         for(int i=0;i<bookHeights.length;i++){
             bookList.push(Integer.parseInt(bookHeights[bookHeights.length-i-1]));
         }
-        
+        //To arrange the books
         for(int i=0;i<bookList.size();i++){
             System.out.print("Books height: ");
             for(int j=0;j<bookList.size();j++){
