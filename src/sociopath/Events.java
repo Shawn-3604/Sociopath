@@ -115,7 +115,7 @@ public class Events {
             //To check whether still have time to lunch with others
             if(lunchTime>0){
                 //To check whether other person is available during the time
-                if(startLunch>=otherStartLunch&&endLunch>otherEndLunch){
+                if(endLunch>otherEndLunch){
                     lunchTime=lunchTime-(otherEndLunch-startLunch);
                     //To ensure time is in correct form
                     if(endLunch%100>=60){
