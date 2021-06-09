@@ -5,11 +5,15 @@
  */
 package sociopath;
 
+import java.util.LinkedList;
+import java.util.Scanner;
+
 /**
  *
  * @author User
  */
 public class Events {
+    public static Scanner s=new Scanner(System.in);
     
     /**
      * Teaching a stranger to solve lab question
@@ -132,5 +136,37 @@ public class Events {
             }
         }
         System.out.println(A.getName()+" max reputation obtain is "+totalrep);
+    }
+    
+    public static void Events4(){
+        int round=0;
+        LinkedList<Integer> bookList=new LinkedList<>();
+        System.out.println("Events 4:");
+        System.out.println("Enter Number of book: ");
+        int num=s.nextInt();
+        s.nextLine();
+        System.out.println("Enter all the books height: ");
+        String list=s.nextLine();
+        String[] bookHeights=list.split(" ");
+        for(int i=0;i<bookHeights.length;i++){
+            bookList.push(Integer.parseInt(bookHeights[bookHeights.length-i-1]));
+        }
+        
+        for(int i=0;i<bookList.size();i++){
+            System.out.print("Books height: ");
+            for(int j=0;j<bookList.size();j++){
+                if(j==bookList.size()-1){
+                    System.out.print(bookList.get(j));
+                    break;
+                }else if(bookList.get(j)<=bookList.get(j+1)){
+                    bookList.remove(j+1);
+                }
+                System.out.print(bookList.get(j)+" ");
+            }
+            round=i;
+            System.out.println();
+        }
+        round+=1;
+        System.out.println("Total number of rounds: "+round);
     }
 }
