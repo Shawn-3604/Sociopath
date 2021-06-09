@@ -62,7 +62,7 @@ public class Data {
         return p;
     }
     
-    public LinkedList<Person> toVertex(){
+    public LinkedList<Person> toLinkedList(){
         return person;
     }
     
