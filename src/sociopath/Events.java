@@ -117,10 +117,6 @@ public class Events {
                 //To check whether other person is available during the time
                 if(endLunch>otherEndLunch){
                     lunchTime=lunchTime-(otherEndLunch-startLunch);
-                    //To ensure time is in correct form
-                    if(endLunch%100>=60){
-                        endLunch+=40;
-                    }
                     //To check whether A is friends with that person or not
                     if(A.contain(D.person.get(i))){
                         A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);

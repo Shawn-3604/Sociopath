@@ -15,11 +15,15 @@ public class Sociopath {
         //Initialization of the variable
         initialize(D);
         
+        /**Events*/
         //System.out.println(D.toData());
         //Events.Events1(D.getPerson("P1"),D.getPerson("P2"),true,true);
         //Events.Events2(D.getPerson("P1"), D.getPerson("P2"), D.getPerson("P3"), false);
-        Events.Events3(D.getPerson("P7"),D);
+        //Events.Events3(D.getPerson("P7"),D);
         //System.out.println(D.getPerson("P2").aveLunchHour());
+        
+        /**Additional Challenges*/
+        //ExtraFeatures.AdditionalChallenge4(D.getPerson("P7"), D);
     }
     
     
