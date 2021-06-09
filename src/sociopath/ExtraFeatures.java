@@ -10,6 +10,11 @@ package sociopath;
  * @author User
  */
 public class ExtraFeatures {
+    /**
+     * Parallel Farming
+     * @param A:The person that want others
+     * @param D:The graph that had been initialize
+     */
     public static void AdditionalChallenge4(Person A,Data D){
         
         System.out.println("Event 3: ");
