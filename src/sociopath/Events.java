@@ -97,7 +97,7 @@ public class Events {
         int totalrep=0;
         //To ensure time is in correct form
         if(endLunch%100>=60){
-            endLunch=(endLunch-(endLunch%100))+(100+((endLunch%100)-60));
+            endLunch+=40;
         }
         int otherStartLunch,otherLunchTime,otherEndLunch;
         for(int i=0;i<D.person.size();i++){
@@ -110,7 +110,7 @@ public class Events {
             otherEndLunch=otherStartLunch+otherLunchTime;
             //To ensure time is in correct form
             if(otherEndLunch%100>=60){
-                otherEndLunch=(otherEndLunch-(otherEndLunch%100))+(100+((otherEndLunch%100)-60));
+                otherEndLunch+=40;
             }
             //To check whether still have time to lunch with others
             if(lunchTime>0){
@@ -119,7 +119,7 @@ public class Events {
                     lunchTime=lunchTime-(otherEndLunch-startLunch);
                     //To ensure time is in correct form
                     if(endLunch%100>=60){
-                        endLunch=(endLunch-(endLunch%100))+(100+((endLunch%100)-60));
+                        endLunch+=40;
                     }
                     //To check whether A is friends with that person or not
                     if(A.contain(D.person.get(i))){

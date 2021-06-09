@@ -86,16 +86,18 @@ public class Person {
     }
     
     public int aveLunchHour(){
-        int average,sum=0;
+        int average,sum=0,temp1,temp2;
         for(int i=0;i<lunchStart.length;i++){
             sum+=lunchStart[i];
             if(sum%100>=60){
-                sum=(sum-(sum%100))+(100+((sum%100)-60));
+                sum+=40;
             }
         }
-        average=sum/lunchStart.length;
+        temp1=(((sum/100)%lunchStart.length)*60);
+        temp2=(temp1+(sum%100))/lunchStart.length;
+        average=(((sum/100)/lunchStart.length)*100)+temp2;
         if(average%100>=60){
-            average=(average-(average%100))+(100+((average%100)-60));
+            average+=40;
         }
         return average;
     }
@@ -107,7 +109,7 @@ public class Person {
         }
         average=sum/lunchPeriod.length;
         if(average%100>=60){
-            average+=(100+((average%100)-60));
+            average+=40;
         }
         return average;
     }
