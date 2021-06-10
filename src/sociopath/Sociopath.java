@@ -5,8 +5,6 @@
  */
 package sociopath;
 
-import java.util.Scanner;
-
 /**
  *
  * @Aizat User
