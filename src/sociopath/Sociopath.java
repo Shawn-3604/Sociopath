@@ -20,7 +20,8 @@ public class Sociopath {
         //Events.Events1(D.getPerson("P1"),D.getPerson("P2"),true,true);
         //Events.Events2(D.getPerson("P1"), D.getPerson("P2"), D.getPerson("P3"), false);
         //Events.Events3(D.getPerson("P7"),D);
-        Events.Events4();
+        //Events.Events4();
+        Events.Events5(D.getPerson("P7"), D.getPerson("P6"));
         
         /**Additional Challenges*/
         //ExtraFeatures.AdditionalChallenge4(D.getPerson("P7"), D);

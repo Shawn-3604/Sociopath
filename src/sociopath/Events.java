@@ -5,6 +5,7 @@
  */
 package sociopath;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -172,5 +173,78 @@ public class Events {
         }
         round+=1;
         System.out.println("Total number of rounds: "+round);
+    }
+    
+    public static ArrayList<ArrayList<Person>> rumor=new ArrayList<>();
+    public static void Events5(Person A,Person B){
+        rumor.clear();
+        Data D=new Data();
+        ArrayList<Person> safe=new ArrayList<>();
+        int spread=1;
+        
+        System.out.println("The rumor start: "+A.getName());
+        System.out.println("The crush: "+B.getName());
+        PossiblePath(A,B,new ArrayList<Person>());
+        
+        if(rumor.isEmpty()){
+            System.out.println("There is no way the rumor will spread.");
+            return;
+        }
+        
+        for(int i=0;i<rumor.size();i++){
+            for(int j=0;j<rumor.get(i).size();j++){
+                if(j==rumor.get(i).size()-1){
+                    System.out.println(rumor.get(i).get(j).getName());
+                }else{
+                    System.out.println(rumor.get(i).get(j).getName()+"-->");
+                }
+            }
+            System.out.println("");
+        }
+        
+        while(!rumor.isEmpty()){
+            int min=rumor.get(0).size();
+            for(int i=0;i<rumor.size();i++){
+                if(rumor.get(i).size()<min){
+                    min=rumor.get(i).size();
+                }
+                if(rumor.get(i).get(spread).equals(B)){
+                    System.out.println("Rumor can be spread to crush!!");
+                    return;
+                }
+            }
+            if(!safe.contains(rumor.get(min).get(spread))){
+                safe.add(rumor.get(min).get(spread));
+            }
+            for(int i=0;i<rumor.size();i++){
+                if(safe.contains(rumor.get(min).get(spread))){
+                    rumor.remove(i);
+                    i--;
+                }
+            }
+            spread++;
+        }
+    }
+    
+    public static void PossiblePath(Person A,Person B,ArrayList<Person> arr){
+        arr.add(A);
+        for(int i=0;i<A.friends.size();i++){
+            if(A.friends.get(i).getP().equals(B)){
+                ArrayList<Person> arr2=new ArrayList<>();
+                for(int j=0;j<arr.size();j++){
+                    arr2.add(arr.get(j));
+                }
+                arr2.add(B);
+                rumor.add(arr2);
+            }else{
+                if(!arr.contains(A.friends.get(i).getP())){
+                    ArrayList<Person> arr2=new ArrayList<>();
+                    for(int j=0;j<arr.size();j++){
+                        arr2.add(arr.get(j));
+                    }
+                    PossiblePath(A.friends.get(i).getP(),B,arr2);
+                }
+            }
+        }
     }
 }
