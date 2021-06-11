@@ -178,9 +178,6 @@ public class Events {
     public static ArrayList<ArrayList<Person>> rumor=new ArrayList<>();
     public static void Events5(Person A,Person B){
         rumor.clear();
-        Data D=new Data();
-        ArrayList<Person> safe=new ArrayList<>();
-        int spread=1;
         
         System.out.println("The rumor start: "+A.getName());
         System.out.println("The crush: "+B.getName());
@@ -189,40 +186,23 @@ public class Events {
         if(rumor.isEmpty()){
             System.out.println("There is no way the rumor will spread.");
             return;
-        }
-        
-        for(int i=0;i<rumor.size();i++){
-            for(int j=0;j<rumor.get(i).size();j++){
-                if(j==rumor.get(i).size()-1){
-                    System.out.println(rumor.get(i).get(j).getName());
-                }else{
-                    System.out.println(rumor.get(i).get(j).getName()+"-->");
-                }
-            }
-            System.out.println("");
-        }
-        
-        while(!rumor.isEmpty()){
-            int min=rumor.get(0).size();
+        }else{
             for(int i=0;i<rumor.size();i++){
-                if(rumor.get(i).size()<min){
-                    min=rumor.get(i).size();
+                for(int j=0;j<rumor.get(i).size();j++){
+                    if(rumor.get(i).get(j).contain(B)){
+                        if(rumor.get(i).get(j).equals(A)){
+                            System.out.println("Rumor can be spread to crush!!");
+                            return;
+                        }else{
+                            System.out.println(rumor.get(i).get(j).getName());
+                            return;
+                        }
+                    }else{
+                        System.out.print(rumor.get(i).get(j).getName()+"-->");
+                    }
                 }
-                if(rumor.get(i).get(spread).equals(B)){
-                    System.out.println("Rumor can be spread to crush!!");
-                    return;
-                }
+                System.out.println("");
             }
-            if(!safe.contains(rumor.get(min).get(spread))){
-                safe.add(rumor.get(min).get(spread));
-            }
-            for(int i=0;i<rumor.size();i++){
-                if(safe.contains(rumor.get(min).get(spread))){
-                    rumor.remove(i);
-                    i--;
-                }
-            }
-            spread++;
         }
     }
     
