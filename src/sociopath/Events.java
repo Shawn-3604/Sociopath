@@ -237,8 +237,8 @@ public class Events {
         }
     }
     
+    public static Data d=new Data();
     public static void Events6(){
-        Data d=new Data();
         System.out.println("Events 6: ");
         System.out.print("Enter number of friends: ");
         int num=s.nextInt();
@@ -246,38 +246,35 @@ public class Events {
         System.out.println("Enter the existing friendships between two people: ");
         s.nextLine();
         for(int i=0;i<num;i++){
-            str1[i]=s.nextLine();
-            while(str1[i].length()!=3){
-                System.out.println("Between two person only!!");
-                str1[i]=s.nextLine();
+            String s1=s.next();
+            String s2=s.next();
+            if(!d.contain(s1)){
+                d.addPerson(s1);
             }
-        }
-        String[][] str2=new String[str1.length][];
-        for(int i=0;i<str1.length;i++){
-            str2[i]=str1[i].split(" ");
-        }
-        for(int i=0;i<str2.length;i++){
-            for(int j=0;j<str2[i].length;j++){
-                if(!d.contain(str2[i][j])){
-                    d.addPerson(str2[i][j]);
-                }
+            if(!d.contain(s2)){
+                d.addPerson(s2);
             }
-            d.addFriends(d.getPerson(str2[i][0]),d.getPerson(str2[i][1]));
+            d.addFriends(d.getPerson(s1), d.getPerson(s2));
         }
-        for(int i=0;i<d.person.size();i++){
-            for(int j=(i+1);j<d.person.size();j++){
-                friendsPath(d.person.get(d.person.size()-1-i),d.person.get(d.person.size()-1-j),new ArrayList<>());
+        for(int i=0;i<num;i++){
+            for(int j=1;j<num;j++){
+                friendsPath(d.person.get(i),d.person.get(i+j),new ArrayList<>());
             }
         }
     }
     
     public static void friendsPath(Person A,Person B,ArrayList<Person> arr){
         arr.add(A);
-        for(int i=0;i<A.friends.size();i++){
-            if(A.friends.get(i).getP().equals(B)){
-                arr.add(B);
-                display(arr);
+        for(int i=0;i<B.friends.size();i++){
+            if(!arr.contains(B)){
+                if(B.friends.get(i).getP().equals(A)){
+                    arr.add(B);
+                    display(arr);
+                }else{
+                    friendsPath(B,B.friends.get(i).getP(),arr);
+                }
             }
+            
         }
     }
     
