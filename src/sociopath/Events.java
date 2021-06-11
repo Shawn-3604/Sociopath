@@ -146,10 +146,10 @@ public class Events {
         int round=0;
         LinkedList<Integer> bookList=new LinkedList<>();
         System.out.println("Events 4:");
-        System.out.println("Enter Number of book: ");
+        System.out.print("Enter Number of book: ");
         int num=s.nextInt();
         s.nextLine();
-        System.out.println("Enter all the books height: ");
+        System.out.print("Enter all the books height: ");
         String list=s.nextLine();
         String[] bookHeights=list.split(" ");
         //To move the data from bookHeights to bookList
@@ -233,6 +233,27 @@ public class Events {
                     }
                     PossiblePath(A.friends.get(i).getP(),B,arr2);
                 }
+            }
+        }
+    }
+    
+    public static void Events6(){
+        System.out.println("Events 6: ");
+        System.out.print("Enter number of existing friendships: ");
+        int num=s.nextInt();
+        s.nextLine();
+        System.out.println("Enter the existing friendships: ");
+        String[] str1=new String[num];
+        for(int i=0;i<num;i++){
+            str1[i]=s.nextLine();
+        }
+        String[][] str2=new String[str1.length][];
+        for(int i=0;i<str1.length;i++){
+            str2[i]=str1[i].split(" ");
+        }
+        for(int i=0;i<str2.length;i++){
+            for(int j=0;j<str2[i].length;j++){
+                
             }
         }
     }
