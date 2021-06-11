@@ -175,21 +175,30 @@ public class Events {
         System.out.println("Total number of rounds: "+round);
     }
     
+    
     public static ArrayList<ArrayList<Person>> rumor=new ArrayList<>();
+    /**
+     * Meet your crush
+     * @param A: The starter of the rumor
+     * @param B : The crush
+     */
     public static void Events5(Person A,Person B){
         rumor.clear();
-        
+        System.out.println("Events 5: ");
         System.out.println("The rumor start: "+A.getName());
         System.out.println("The crush: "+B.getName());
         PossiblePath(A,B,new ArrayList<Person>());
-        
+        //To check whether there is a path between the person and crush
         if(rumor.isEmpty()){
             System.out.println("There is no way the rumor will spread.");
             return;
         }else{
             for(int i=0;i<rumor.size();i++){
+                //To get the possible path of rumor
                 for(int j=0;j<rumor.get(i).size();j++){
+                    //To check for crush friends
                     if(rumor.get(i).get(j).contain(B)){
+                        //To check whether the crush is the person's friend
                         if(rumor.get(i).get(j).equals(A)){
                             System.out.println("Rumor can be spread to crush!!");
                             return;
