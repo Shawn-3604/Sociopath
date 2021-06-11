@@ -54,14 +54,6 @@ public class Data {
         return false;
     }
     
-    public Person[] toArray(){
-        Person[] p=new Person[person.size()];
-        for(int i=0;i<person.size();i++){
-            p[i]=person.get(i);
-        }
-        return p;
-    }
-    
     public LinkedList<Person> toLinkedList(){
         return person;
     }

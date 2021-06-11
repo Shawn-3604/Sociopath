@@ -238,14 +238,19 @@ public class Events {
     }
     
     public static void Events6(){
+        Data d=new Data();
         System.out.println("Events 6: ");
-        System.out.print("Enter number of existing friendships: ");
+        System.out.print("Enter number of friends: ");
         int num=s.nextInt();
-        s.nextLine();
-        System.out.println("Enter the existing friendships: ");
         String[] str1=new String[num];
+        System.out.println("Enter the existing friendships between two people: ");
+        s.nextLine();
         for(int i=0;i<num;i++){
             str1[i]=s.nextLine();
+            while(str1[i].length()!=3){
+                System.out.println("Between two person only!!");
+                str1[i]=s.nextLine();
+            }
         }
         String[][] str2=new String[str1.length][];
         for(int i=0;i<str1.length;i++){
@@ -253,8 +258,38 @@ public class Events {
         }
         for(int i=0;i<str2.length;i++){
             for(int j=0;j<str2[i].length;j++){
-                
+                if(!d.contain(str2[i][j])){
+                    d.addPerson(str2[i][j]);
+                }
+            }
+            d.addFriends(d.getPerson(str2[i][0]),d.getPerson(str2[i][1]));
+        }
+        for(int i=0;i<d.person.size();i++){
+            for(int j=(i+1);j<d.person.size();j++){
+                friendsPath(d.person.get(d.person.size()-1-i),d.person.get(d.person.size()-1-j),new ArrayList<>());
             }
         }
+    }
+    
+    public static void friendsPath(Person A,Person B,ArrayList<Person> arr){
+        arr.add(A);
+        for(int i=0;i<A.friends.size();i++){
+            if(A.friends.get(i).getP().equals(B)){
+                arr.add(B);
+                display(arr);
+            }
+        }
+    }
+    
+    public static void display(ArrayList<Person> arr){
+        System.out.print("[");
+        for(int i=0;i<arr.size();i++){
+            if(i==arr.size()-1){
+                System.out.print(arr.get(i).getName());
+            }else{
+                System.out.print(arr.get(i).getName()+",");
+            }
+        }
+        System.out.println("]");
     }
 }
