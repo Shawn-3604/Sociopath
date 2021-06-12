@@ -83,6 +83,7 @@ public class ExtraFeatures {
                     visited.add(vaccinated.get(i));
                 }
                 vaccine--;
+                //To create a cluster based on friendship
                 for(int i=0;i<d.person.size();i++){
                     if(!visited.contains(d.person.get(i))){
                         ArrayList<Person> p=new ArrayList<>();
@@ -98,6 +99,7 @@ public class ExtraFeatures {
                         maxCluster=i;
                     }
                 }
+                //To get the list of person in a cluster
                 for(int i=0;i<cluster.size();i++){
                     System.out.print("cluster "+(i+1)+": ");
                     for(int j=0;j<cluster.get(i).size();j++){
