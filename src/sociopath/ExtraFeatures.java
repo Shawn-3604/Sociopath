@@ -71,12 +71,14 @@ public class ExtraFeatures {
         System.out.println("Additional Challenge 6: ");
         System.out.print("Total vaccine number: ");
         int vaccine=s.nextInt();
+        //To check whether the vaccine is enough for all or not
         if(vaccine>=d.getsize()){
             System.out.println("Everyone is vaccinated since the number of vaccine is enough.");
         }else{
             while(vaccine!=0){
                 cluster.clear();
                 visited.clear();
+                //
                 for(int i=0;i<vaccinated.size();i++){
                     visited.add(vaccinated.get(i));
                 }
@@ -128,6 +130,11 @@ public class ExtraFeatures {
             }
         }
     }
+    /**
+     * To check for friends connection
+     * @param A: The main person
+     * @param p: A list of person
+     */
     public static void bestfriends(Person A,ArrayList<Person> p){
         visited.add(A);
         p.add(A);
