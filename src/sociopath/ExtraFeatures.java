@@ -93,6 +93,7 @@ public class ExtraFeatures {
                 }
                 int maxClusterSize=0;
                 int maxCluster=-1;
+                //To get the max cluster and max cluster size
                 for(int i=0;i<cluster.size();i++){
                     if(cluster.get(i).size()>maxClusterSize){
                         maxClusterSize=cluster.get(i).size();
