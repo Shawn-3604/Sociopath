@@ -22,10 +22,11 @@ public class Sociopath {
         //Events.Events3(D.getPerson("P7"),D);
         //Events.Events4();
         //Events.Events5(D.getPerson("P7"), D.getPerson("P3"));
-        Events.Events6();
+        //Events.Events6();
         
         /**Additional Challenges*/
         //ExtraFeatures.AdditionalChallenge4(D.getPerson("P7"), D);
+        ExtraFeatures.AdditionalChallenge6(D);
     }
     
     

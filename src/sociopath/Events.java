@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author User
  */
 public class Events {
-    public static Scanner s=new Scanner(System.in);
+    private static Scanner s=new Scanner(System.in);
     
     /**
      * Teaching a stranger to solve lab question
@@ -91,7 +91,7 @@ public class Events {
     /**
      * Your road to glory
      * @param A:The person that want others
-     * @param D:The graph that had been initialize
+     * @param D:The data that had been initialize
      */
     public static void Events3(Person A,Data D){
         System.out.println("Event 3: ");
@@ -215,9 +215,16 @@ public class Events {
         }
     }
     
+    /**
+     * Path for the rumor to travel
+     * @param A: The starter of the rumor
+     * @param B: A friend
+     * @param arr: The list of person
+     */
     public static void PossiblePath(Person A,Person B,ArrayList<Person> arr){
         arr.add(A);
         for(int i=0;i<A.friends.size();i++){
+            //To check whether A friend list at certain person is equal at B
             if(A.friends.get(i).getP().equals(B)){
                 ArrayList<Person> arr2=new ArrayList<>();
                 for(int j=0;j<arr.size();j++){
@@ -231,6 +238,7 @@ public class Events {
                     for(int j=0;j<arr.size();j++){
                         arr2.add(arr.get(j));
                     }
+                    //Recursion
                     PossiblePath(A.friends.get(i).getP(),B,arr2);
                 }
             }
@@ -238,6 +246,9 @@ public class Events {
     }
     
     public static Data d=new Data();
+    /**
+     * Friendship
+     */
     public static void Events6(){
         System.out.println("Events 6: ");
         System.out.print("Enter number of friends: ");
@@ -245,17 +256,21 @@ public class Events {
         String[] str1=new String[num];
         System.out.println("Enter the existing friendships between two people: ");
         s.nextLine();
+        //Input for the existing friendships
         for(int i=0;i<num;i++){
             String s1=s.next();
             String s2=s.next();
+            //To check for the same person
             if(!d.contain(s1)){
                 d.addPerson(s1);
             }
+            //To check for the same person
             if(!d.contain(s2)){
                 d.addPerson(s2);
             }
             d.addFriends(d.getPerson(s1), d.getPerson(s2));
         }
+        //To get the list of friendships
         for(int i=0;i<d.person.size();i++){
             for(int j=i+1;j<d.person.size();j++){
                 friendsPath(d.person.get(d.person.size()-1-i),d.person.get(d.person.size()-1-j),new ArrayList<>());
@@ -263,9 +278,16 @@ public class Events {
         }
     }
     
+    /**
+     * To get the friendships
+     * @param A: The first person
+     * @param B: A friends
+     * @param arr: The list of friends
+     */
     public static void friendsPath(Person A,Person B,ArrayList<Person> arr){
         arr.add(A);
         for(int i=0;i<A.friends.size();i++){
+            //check for the same person
             if(A.friends.get(i).getP().equals(B)){
                 ArrayList<Person> arr2=new ArrayList<>();
                 for(int j=0;j<arr.size();j++){
@@ -279,15 +301,21 @@ public class Events {
                     for(int j=0;j<arr.size();j++){
                         arr2.add(arr.get(j));
                     }
+                    //Recursion
                     friendsPath(A.friends.get(i).getP(),B,arr2);
                 }
             }
         }
     }
     
+    /**
+     * To print out the friendship list
+     * @param arr: List of person
+     */
     public static void display(ArrayList<Person> arr){
         System.out.print("[");
         for(int i=0;i<arr.size();i++){
+            //To check for the last friend in the list
             if(i==arr.size()-1){
                 System.out.print(arr.get(i).getName());
             }else{

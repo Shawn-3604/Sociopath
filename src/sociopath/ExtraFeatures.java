@@ -5,19 +5,23 @@
  */
 package sociopath;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 /**
  *
  * @author User
  */
 public class ExtraFeatures {
+    private static Scanner s=new Scanner(System.in);
     /**
      * Parallel Farming
      * @param A:The person that want others
-     * @param D:The graph that had been initialize
+     * @param D:The data that had been initialize
      */
     public static void AdditionalChallenge4(Person A,Data D){
-        
-        System.out.println("Event 3: ");
+        System.out.println("Additional Challenge 4: ");
         System.out.println(A.getName()+" want to eat lunch with others to increase reputation");
         int startLunch=A.aveLunchHour();
         int lunchTime=A.aveLunchTime();
@@ -54,5 +58,83 @@ public class ExtraFeatures {
             }
         }
         System.out.println(A.getName()+" max reputation obtain is "+totalrep);
+    }
+    
+    private static LinkedList<Person> vaccinated=new LinkedList<>();
+    private static ArrayList<ArrayList<Person>> cluster=new ArrayList<>();
+    private static ArrayList<Person> visited=new ArrayList<>();
+    /**
+     * Herd Immunity
+     * @param d: The data that had been initialize
+     */
+    public static void AdditionalChallenge6(Data d){
+        System.out.println("Additional Challenge 6: ");
+        System.out.print("Total vaccine number: ");
+        int vaccine=s.nextInt();
+        if(vaccine>=d.getsize()){
+            System.out.println("Everyone is vaccinated since the number of vaccine is enough.");
+        }else{
+            while(vaccine!=0){
+                cluster.clear();
+                visited.clear();
+                for(int i=0;i<vaccinated.size();i++){
+                    visited.add(vaccinated.get(i));
+                }
+                vaccine--;
+                for(int i=0;i<d.person.size();i++){
+                    if(!visited.contains(d.person.get(i))){
+                        ArrayList<Person> p=new ArrayList<>();
+                        bestfriends(d.person.get(i),p);
+                        cluster.add(p);
+                    }
+                }
+                int maxClusterSize=0;
+                int maxCluster=-1;
+                for(int i=0;i<cluster.size();i++){
+                    if(cluster.get(i).size()>maxClusterSize){
+                        maxClusterSize=cluster.get(i).size();
+                        maxCluster=i;
+                    }
+                }
+                for(int i=0;i<cluster.size();i++){
+                    System.out.print("cluster "+(i+1)+": ");
+                    for(int j=0;j<cluster.get(i).size();j++){
+                        if(j==cluster.get(i).size()-1){
+                            System.out.print(cluster.get(i).get(j).getName());
+                        }else{
+                            System.out.print(cluster.get(i).get(j).getName()+", ");
+                        }
+                    }
+                    System.out.println("");
+                }
+                int maxOutDeg = 0;
+                int maxOutDegIndex = -1;
+                for (int i = 0; i < cluster.get(maxCluster).size(); i++) {
+                    LinkedList<Friends> f = cluster.get(maxCluster).get(i).friends;
+                    int count = 0;
+                    for (int j = 0; j < f.size(); j++) {
+                        if(vaccinated.contains(f.get(j).getP())){
+                            count++;
+                        }
+                    }
+                    int outdeg = f.size() - count;
+                    if(outdeg>maxOutDeg){
+                        maxOutDeg = outdeg;
+                        maxOutDegIndex = i;
+                    }
+                }
+                System.out.println("People vaccinated : "+cluster.get(maxCluster).get(maxOutDegIndex).getName());
+                vaccinated.add(cluster.get(maxCluster).get(maxOutDegIndex));
+            }
+        }
+    }
+    public static void bestfriends(Person A,ArrayList<Person> p){
+        visited.add(A);
+        p.add(A);
+        for(int i=0;i<A.friends.size();i++){
+            if(!visited.contains(A.friends.get(i).getP())){
+                bestfriends(A.friends.get(i).getP(),p);
+            }
+        }
     }
 }
