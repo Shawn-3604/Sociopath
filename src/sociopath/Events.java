@@ -256,25 +256,32 @@ public class Events {
             }
             d.addFriends(d.getPerson(s1), d.getPerson(s2));
         }
-        for(int i=0;i<num;i++){
-            for(int j=1;j<num;j++){
-                friendsPath(d.person.get(i),d.person.get(i+j),new ArrayList<>());
+        for(int i=0;i<d.person.size();i++){
+            for(int j=i+1;j<d.person.size();j++){
+                friendsPath(d.person.get(d.person.size()-1-i),d.person.get(d.person.size()-1-j),new ArrayList<>());
             }
         }
     }
     
     public static void friendsPath(Person A,Person B,ArrayList<Person> arr){
         arr.add(A);
-        for(int i=0;i<B.friends.size();i++){
-            if(!arr.contains(B)){
-                if(B.friends.get(i).getP().equals(A)){
-                    arr.add(B);
-                    display(arr);
-                }else{
-                    friendsPath(B,B.friends.get(i).getP(),arr);
+        for(int i=0;i<A.friends.size();i++){
+            if(A.friends.get(i).getP().equals(B)){
+                ArrayList<Person> arr2=new ArrayList<>();
+                for(int j=0;j<arr.size();j++){
+                    arr2.add(arr.get(j));
+                }
+                arr2.add(B);
+                display(arr2);
+            }else{
+                if(!arr.contains(A.friends.get(i).getP())){
+                    ArrayList<Person> arr2=new ArrayList<>();
+                    for(int j=0;j<arr.size();j++){
+                        arr2.add(arr.get(j));
+                    }
+                    friendsPath(A.friends.get(i).getP(),B,arr2);
                 }
             }
-            
         }
     }
     

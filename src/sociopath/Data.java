@@ -48,8 +48,9 @@ public class Data {
     public boolean contain(String name){
         Person p=new Person(name);
         for(int i=0;i<person.size();i++){
-            if(person.get(i).contain(p))
+            if(person.get(i).getName().equals(name)){
                 return true;
+            }
         }
         return false;
     }
