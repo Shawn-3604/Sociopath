@@ -87,7 +87,7 @@ public class ExtraFeatures {
                 for(int i=0;i<d.person.size();i++){
                     if(!visited.contains(d.person.get(i))){
                         ArrayList<Person> p=new ArrayList<>();
-                        bestfriends(d.person.get(i),p);
+                        BFS(d.person.get(i),p);
                         cluster.add(p);
                     }
                 }
@@ -138,12 +138,12 @@ public class ExtraFeatures {
      * @param A: The main person
      * @param p: A list of person
      */
-    public static void bestfriends(Person A,ArrayList<Person> p){
+    public static void BFS(Person A,ArrayList<Person> p){
         visited.add(A);
         p.add(A);
         for(int i=0;i<A.friends.size();i++){
             if(!visited.contains(A.friends.get(i).getP())){
-                bestfriends(A.friends.get(i).getP(),p);
+                BFS(A.friends.get(i).getP(),p);
             }
         }
     }
