@@ -17,8 +17,8 @@ public class Sociopath {
         
         /**Events*/
         //System.out.println(D.toData());
-        //Events.Events1(D.getPerson("P1"),D.getPerson("P2"),true,true);
-        //Events.Events2(D.getPerson("P1"), D.getPerson("P2"), D.getPerson("P3"), false);
+        //Events.Events1(D.getPerson("P1"),D.getPerson("P4"),true,true);
+        //Events.Events2(D.getPerson("P1"), D.getPerson("P2"), D.getPerson("P3"), true);
         //Events.Events3(D.getPerson("P7"),D);
         //Events.Events4();
         //Events.Events5(D.getPerson("P7"), D.getPerson("P3"));

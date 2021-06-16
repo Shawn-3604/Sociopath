@@ -36,13 +36,13 @@ public class Events {
             if(answer){
                 //To check whether B good or not at programming
                 if(Grade){
-                    B.setRep(A, 10);
+                    B.addRep(A, 10);
                     System.out.println(A.getName()+" said that the learning experience with "
                             +B.getName()+" is very pleasant");
                     System.out.println(B.getName()+">>"+A.getName()+",rep: "
                             +B.getRep(A));
                 }else{
-                    B.setRep(A, 2);
+                    B.addRep(A, 2);
                     System.out.println(A.getName()+" said that the learning experience with "
                             +B.getName()+" is not very pleasant");
                     System.out.println(B.getName()+">>"+A.getName()+",rep: "
