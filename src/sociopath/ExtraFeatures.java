@@ -40,6 +40,7 @@ public class ExtraFeatures {
             otherStartLunch=D.person.get(i).aveLunchHour();
             otherLunchTime=D.person.get(i).aveLunchTime();
             otherEndLunch=otherStartLunch+otherLunchTime;
+            System.out.println(A.aveLunchHour()+"\n"+A.aveLunchTime()+"\n"+endLunch);
             //To ensure time is in correct form
             if(otherEndLunch%100>=60){
                 otherEndLunch+=40;
@@ -50,9 +51,23 @@ public class ExtraFeatures {
                 if(A.contain(D.person.get(i))){
                     A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);
                     totalrep+=1;
+                    otherStartLunch=D.person.get(i).aveLunchHour();
+                    otherLunchTime=D.person.get(i).aveLunchTime();
+                    otherEndLunch=otherStartLunch+otherLunchTime;
+                    if(otherEndLunch%100>=60){
+                        otherEndLunch+=40;
+                    }
+                    System.out.println(D.person.get(i).aveLunchHour()+"\n"+D.person.get(i).aveLunchTime()+"\n"+otherEndLunch);
                 }else{
                     A.addRep(D.person.get(i), 1);
                     totalrep+=1;
+                    otherStartLunch=D.person.get(i).aveLunchHour();
+                    otherLunchTime=D.person.get(i).aveLunchTime();
+                    otherEndLunch=otherStartLunch+otherLunchTime;
+                    if(otherEndLunch%100>=60){
+                        otherEndLunch+=40;
+                    }    
+                    System.out.println(D.person.get(i).aveLunchHour()+"\n"+D.person.get(i).aveLunchTime()+"\n"+otherEndLunch);
                 }
             System.out.println(A.getName()+" eats lunch with "+D.person.get(i).getName());
             }

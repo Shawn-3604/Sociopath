@@ -37,12 +37,16 @@ public class Events {
                 //To check whether B good or not at programming
                 if(Grade){
                     B.addRep(A, 10);
+                    A.addFriends(B);
+                    B.addFriends(A);
                     System.out.println(A.getName()+" said that the learning experience with "
                             +B.getName()+" is very pleasant");
                     System.out.println(B.getName()+">>"+A.getName()+",rep: "
                             +B.getRep(A));
                 }else{
                     B.addRep(A, 2);
+                    A.addFriends(B);
+                    B.addFriends(A);
                     System.out.println(A.getName()+" said that the learning experience with "
                             +B.getName()+" is not very pleasant");
                     System.out.println(B.getName()+">>"+A.getName()+",rep: "
@@ -99,6 +103,7 @@ public class Events {
         int startLunch=A.aveLunchHour();
         int lunchTime=A.aveLunchTime();
         int endLunch=startLunch+lunchTime;
+        System.out.println(A.aveLunchHour()+"\n"+A.aveLunchTime()+"\n"+endLunch);
         int totalrep=0;
         //To ensure time is in correct form
         if(endLunch%100>=60){
@@ -126,9 +131,17 @@ public class Events {
                     if(A.contain(D.person.get(i))){
                         A.setRep(D.person.get(i), A.getRep(D.person.get(i))+1);
                         totalrep+=1;
+                        otherStartLunch=D.person.get(i).aveLunchHour();
+                        otherLunchTime=D.person.get(i).aveLunchTime();
+                        otherEndLunch=otherStartLunch+otherLunchTime;
+                        System.out.println(D.person.get(i).aveLunchHour()+"\n"+A.aveLunchTime()+"\n"+otherEndLunch);
                     }else{
                         A.addRep(D.person.get(i), 1);
                         totalrep+=1;
+                        otherStartLunch=D.person.get(i).aveLunchHour();
+                        otherLunchTime=D.person.get(i).aveLunchTime();
+                        otherEndLunch=otherStartLunch+otherLunchTime;
+                        System.out.println(D.person.get(i).aveLunchHour()+"\n"+A.aveLunchTime()+"\n"+otherEndLunch);
                     }
                 System.out.println(A.getName()+" eats lunch with "+D.person.get(i).getName());
                 }

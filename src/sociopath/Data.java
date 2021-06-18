@@ -66,7 +66,7 @@ public class Data {
                 f+=("\n"+person.get(i).getName()+"----->"+person.get(i).friends.get(j).getP().getName());
             }
         }
-        f+="\nReputation: ";
+        f+="\n\nReputation: ";
         for(int i=0;i<person.size();i++){
             for(int j=0;j<person.get(i).rep.size();j++){
                 f+=("\n"+person.get(i).getName()+">>"+person.get(i).rep.get(j).toString());
